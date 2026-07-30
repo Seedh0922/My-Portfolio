@@ -6,18 +6,18 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — ${site.title}`,
+    default: `${site.name} — Shopify & Headless Commerce Engineer`,
     template: `%s — ${site.name}`,
   },
   description:
-    "Senior e-commerce full stack developer. 13 years in web development, 8+ on Shopify and Shopify Plus. Performance work delivered with the measurement attached.",
+    "Shopify and headless commerce engineer. Thirteen years building for the web, eight on Shopify and Shopify Plus — storefronts, custom apps, catalog and order integrations, performance and CRO.",
   openGraph: {
     type: "website",
     url: site.url,
     siteName: site.name,
-    title: `${site.name} — ${site.title}`,
+    title: `${site.name} — Shopify & Headless Commerce Engineer`,
     description:
-      "Shopify, Shopify Plus and headless commerce. Performance work delivered with the measurement attached, not a screenshot.",
+      "Shopify, Shopify Plus and headless commerce. Storefronts, custom apps, integrations, performance and CRO.",
   },
   alternates: { canonical: "/" },
 };

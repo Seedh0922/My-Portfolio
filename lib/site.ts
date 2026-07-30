@@ -1,5 +1,8 @@
 export const site = {
   name: "Clinton Brown",
+  /** How I introduce myself. Also the phrase roles are posted under. */
+  role: "Shopify & headless commerce engineer",
+  /** The formal title, kept for metadata and the résumé. */
   title: "Senior E-Commerce Full Stack Developer",
   location: "Murfreesboro, TN",
   availability: "Open to remote",
@@ -8,8 +11,39 @@ export const site = {
   linkedin: "https://www.linkedin.com/in/clinton-brown-72210b426",
   url: "https://clintonbrown.vercel.app",
   summary:
-    "13 years in web development, 8+ of them on Shopify, Shopify Plus, WooCommerce and headless commerce for B2C and B2B merchants.",
+    "Thirteen years building for the web, eight of them on Shopify and Shopify Plus.",
 } as const;
+
+/**
+ * What I do, each backed by work I have actually shipped. This is the part of
+ * the site that carries the breadth; the case studies carry the depth.
+ */
+export const practice = [
+  {
+    heading: "Storefronts",
+    body: "Liquid themes and headless front ends on Next.js and Hydrogen. Online Store 2.0 sections, metafield content models, Shopify Markets locale routing, and the SEO checklist that keeps redirects and canonicals intact through a replatform.",
+    proof:
+      "Led a headless migration to Next.js and the Storefront API for a DTC brand, phased so navigation and catalog landed before higher-risk PDP work.",
+  },
+  {
+    heading: "Apps & APIs",
+    body: "Custom apps on the Admin and Storefront APIs, GraphQL, webhooks, app proxies, Checkout Extensibility and Theme App Extensions — for the promotion, account and catalog logic that does not fit cleanly in theme code.",
+    proof:
+      "Built merchant-specific apps across Shopify Plus accounts, and rebuilt three Plus themes around reusable sections and metafields so marketers could launch campaigns without a theme deploy.",
+  },
+  {
+    heading: "Integrations",
+    body: "Node.js services connecting Shopify to ERP, warehouse, payment and CRM systems: catalog and inventory sync, order export, webhook handling with retries and alerting when a handoff fails.",
+    proof:
+      "Built an ERP catalog and inventory sync into Shopify with retry logic for failed updates, and wired Stripe, PayPal and ShipStation order flows for Plus merchants.",
+  },
+  {
+    heading: "Performance & growth",
+    body: "Core Web Vitals, technical SEO, GA4 and GTM event integrity, Klaviyo flows, A/B testing and CRO — measured before and after, with budgets in CI so a regression is caught at review time.",
+    proof:
+      "Brought PDP and collection LCP down ~22%, lifted mobile Lighthouse on priority templates from the low 40s into the mid-70s, and ran the CRO tests behind a ~6% lift in checkout-start rate.",
+  },
+] as const;
 
 export const repo = {
   url: "https://github.com/Seedh0922/shopify-headless-perf-lab",

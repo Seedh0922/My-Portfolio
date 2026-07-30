@@ -96,11 +96,11 @@ export function SiteFooter() {
       <div className="shell" style={{ marginTop: "1.5rem" }}>
         <p className="note">
           Built with Next.js, statically rendered, deployed on Vercel. No web
-          fonts, no third-party scripts, no analytics, no cookie banner. Mobile
-          Lighthouse: 98–100 performance, 100 accessibility, 100 SEO, 0.000
-          layout shift. What keeps the case-study page off 100 is React&rsquo;s
-          hydration bundle on a page with nothing to hydrate — a real trade, and
-          not one I am going to describe as free.
+          fonts, no third-party scripts, no analytics. Mobile Lighthouse: 98–100
+          performance, 100 accessibility, 100 SEO, 0.000 layout shift. The
+          case-study page sits at 98 because React&rsquo;s hydration bundle
+          still loads on a page with nothing to hydrate — worth noting, since
+          this site asks to be measured.
         </p>
       </div>
     </footer>

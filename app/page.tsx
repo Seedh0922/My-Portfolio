@@ -1,14 +1,13 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "@/components/chrome";
-import { StatTiles } from "@/components/figures";
-import { capabilities, repo, roles, site } from "@/lib/site";
+import { practice, repo, roles, site } from "@/lib/site";
 
 export default function Home() {
   return (
     <>
       <section className="shell hero">
         <p className="hero-eyebrow">
-          <span>{site.title}</span>
+          <span>{site.name}</span>
           <span className="sep" aria-hidden="true" />
           <span>{site.location}</span>
           <span className="sep" aria-hidden="true" />
@@ -16,21 +15,20 @@ export default function Home() {
         </p>
 
         <h1>
-          I build ecommerce storefronts that stay fast{" "}
-          <span className="quiet">
-            — and I hand over the measurement, not a screenshot.
-          </span>
+          Shopify and headless <span className="quiet">commerce engineer</span>
         </h1>
 
         <p className="hero-sub">
-          {site.summary} Most performance claims cannot be checked by the person
-          reading them. Mine ship as a repository you can clone and a command you
-          can run.
+          Thirteen years building for the web, eight of them on Shopify and
+          Shopify Plus. I work across the storefront and the systems behind it —
+          Liquid themes and headless front ends, custom apps on the Admin and
+          Storefront APIs, catalog and order integrations, and the performance
+          and CRO work that decides whether traffic turns into orders.
         </p>
 
         <div className="hero-actions">
-          <Link className="btn btn-primary" href="/work/shopify-headless-perf-lab">
-            See the evidence
+          <Link className="btn btn-primary" href="#work">
+            Selected work
             <ArrowRight />
           </Link>
           <a className="btn btn-ghost" href={`mailto:${site.email}`}>
@@ -39,17 +37,19 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="shell section" aria-labelledby="measured">
-        <h2 className="section-label" id="measured">
-          Measured, not asserted
+      <section className="shell section" aria-labelledby="practice">
+        <h2 className="section-label" id="practice">
+          What I do
         </h2>
-        <StatTiles />
-        <p className="kpi-caption">
-          The same Shopify storefront, shipped in two modes and measured by one
-          command on the homepage route — mobile, applied throttling at 4× CPU on
-          Slow 4G, median of three runs. Nothing here was typed by hand; the
-          numbers are generated into the repository and regenerate on your machine.
-        </p>
+        <div className="practice-grid">
+          {practice.map((p) => (
+            <article className="practice" key={p.heading}>
+              <h3>{p.heading}</h3>
+              <p className="practice-body">{p.body}</p>
+              <p className="practice-proof">{p.proof}</p>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="shell section" id="work" aria-labelledby="work-heading">
@@ -62,12 +62,26 @@ export default function Home() {
           <h3>Shopify Headless Perf Lab</h3>
           <p>
             A headless Shopify storefront on Hydrogen and the Oxygen worker
-            runtime, shipped in two modes: one built the way it should go out, one
-            carrying six regressions that real app-heavy themes have. One script
-            measures both, so the difference between them is an observation
-            instead of a claim. Lighthouse budgets then run on every pull request
-            and block the ones that break them.
+            runtime, built so its performance numbers can be re-run rather than
+            taken on trust. The same storefront ships in two modes — one tuned,
+            one carrying six regressions that app-heavy themes commonly pick up —
+            and a single script measures both. Lighthouse budgets then run on
+            every pull request, so a regression is caught at review time.
           </p>
+          <ul className="result-row">
+            <li>
+              <span className="result-value">−47%</span>
+              <span className="result-label">Largest Contentful Paint</span>
+            </li>
+            <li>
+              <span className="result-value">143 → 4 ms</span>
+              <span className="result-label">Total Blocking Time</span>
+            </li>
+            <li>
+              <span className="result-value">−34%</span>
+              <span className="result-label">Transfer size</span>
+            </li>
+          </ul>
           <div className="tag-row">
             {[
               "Hydrogen",
@@ -90,9 +104,9 @@ export default function Home() {
         </Link>
 
         <p className="note" style={{ marginTop: "1.5rem" }}>
-          Next up: an order and inventory sync service with a harness that proves
-          duplicate, out-of-order and half-failed webhooks cannot corrupt stock
-          levels.
+          In progress: an order and inventory sync service with a harness that
+          replays duplicate, out-of-order and half-failed webhooks to show stock
+          levels stay correct through all of them.
         </p>
       </section>
 
@@ -102,40 +116,24 @@ export default function Home() {
         </h2>
         <div className="prose">
           <p>
-            <strong>Performance is a budget, not a sprint.</strong> A store gets
-            slow one reasonable request at a time — a reviews app in January, a
-            popup in March, an upsell widget in May. Nobody measures any of them,
-            and by December nobody can say which one did it. I put the cost on the
-            pull request that introduces it, while it is still one line to revert.
+            <strong>Performance is a budget, not a sprint.</strong> A storefront
+            accumulates cost one reasonable request at a time — a reviews app, a
+            popup, an upsell widget. I put the number on the pull request that
+            introduces it, so the merchant is choosing between a feature and a
+            measured cost while it is still one line to revert.
           </p>
           <p>
-            <strong>Decisions get written down.</strong> Every project I own
-            carries short decision records that name what was given up. Checkout
-            stays on Shopify because PCI scope is not worth owning; the demo runs
-            on a public mock API because a repository nobody can run is a
-            screenshot gallery. Being able to say what a choice cost is the part
-            that transfers between teams.
+            <strong>Decisions get written down.</strong> Short decision records
+            for the calls that shaped a build, and runbooks for the failures
+            support will meet at 2am. The person picking the store up in six
+            months is usually not me.
           </p>
           <p>
-            <strong>Unflattering results stay in.</strong> One of the six levers
-            in my own comparison does not move its metric, and the report says so
-            rather than quietly dropping the row. Measurement is only worth
-            anything if it is allowed to disagree with you.
+            <strong>Risky work ships in phases.</strong> On a replatform I like
+            navigation and catalog pages to land and settle before the PDP, so
+            there is a working store at every step rather than one launch that
+            has to go perfectly.
           </p>
-        </div>
-      </section>
-
-      <section className="shell section" aria-labelledby="capabilities">
-        <h2 className="section-label" id="capabilities">
-          Capabilities
-        </h2>
-        <div className="cap-grid">
-          {capabilities.map((c) => (
-            <div className="cap" key={c.heading}>
-              <h3>{c.heading}</h3>
-              <p>{c.body}</p>
-            </div>
-          ))}
         </div>
       </section>
 
@@ -169,10 +167,9 @@ export default function Home() {
         </h2>
         <div className="prose">
           <p>
-            I am open to senior ecommerce engineering roles, remote from{" "}
-            {site.location}. The fastest way to judge whether I am worth an
-            interview is to open the repository below and run the command in its
-            README.
+            I am open to senior Shopify and headless commerce roles, remote from{" "}
+            {site.location}. Happy to walk through any of the work above, or talk
+            about what you are building.
           </p>
         </div>
         <div className="hero-actions" style={{ marginTop: "2rem" }}>
@@ -185,7 +182,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            GitHub repository
+            GitHub
             <ArrowUpRight />
           </a>
           <a

@@ -26,9 +26,9 @@ export default function About() {
             The work I am best at sits between the storefront and the systems
             behind it: catalog and inventory sync, webhook reliability, Core Web
             Vitals, technical SEO, and the conversion-rate work that decides
-            whether traffic a merchant paid for turns into orders. I have spent
-            enough time on production hotfixes to prefer the version that fails
-            loudly at review time.
+            whether traffic a merchant paid for turns into orders. Enough of my
+            time has gone into production hotfixes that I would rather catch a
+            problem in review than at 2am.
           </p>
           <p>
             I work closely with merchants, designers and product managers, and I
