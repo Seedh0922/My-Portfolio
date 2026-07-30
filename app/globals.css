@@ -669,6 +669,152 @@ ol {
 }
 
 /* --------------------------------------------------------------------------
+   Project cards — screenshot beside the write-up, with live / case / source
+--------------------------------------------------------------------------- */
+
+.project-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.project {
+  border: 1px solid var(--rule);
+  border-radius: 16px;
+  background: var(--surface);
+  overflow: hidden;
+  display: grid;
+}
+
+@media (min-width: 62rem) {
+  .project {
+    grid-template-columns: 22rem 1fr;
+    align-items: stretch;
+  }
+}
+
+.project-shot {
+  display: block;
+  position: relative;
+  background: color-mix(in srgb, var(--ink) 4%, var(--surface));
+  border-bottom: 1px solid var(--rule);
+  /* A tall screenshot cropped to a stable card ratio; the top of the page is
+     the part worth showing, so the crop is anchored there. */
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+@media (min-width: 62rem) {
+  .project-shot {
+    /* Stretches to the row height set by the write-up beside it; `fill` on the
+       image then crops to the top of the page rather than shrinking all of it. */
+    aspect-ratio: auto;
+    min-height: 100%;
+    border-bottom: 0;
+    border-right: 1px solid var(--rule);
+  }
+}
+
+.project-shot img {
+  object-fit: cover;
+  object-position: top center;
+}
+
+.project-shot-empty {
+  display: grid;
+  place-items: center;
+  min-height: 12rem;
+  color: var(--ink-muted);
+  font-size: 0.875rem;
+}
+
+.project-shot-empty::before {
+  content: "";
+  position: absolute;
+  inset: 1rem;
+  border: 1px dashed var(--rule);
+  border-radius: 10px;
+}
+
+.project-shot-empty span {
+  position: relative;
+}
+
+.project-body {
+  padding: 1.75rem 1.5rem;
+  display: grid;
+  gap: 0;
+  align-content: start;
+}
+
+@media (min-width: 46rem) {
+  .project-body {
+    padding: 2rem;
+  }
+}
+
+.project-body h3 {
+  margin-top: 0.625rem;
+  font-size: clamp(1.25rem, 1.05rem + 0.8vw, 1.5rem);
+}
+
+.project-blurb {
+  margin-top: 0.875rem;
+  color: var(--ink-2);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.project-pending {
+  border-style: dashed;
+}
+
+.project-pending .project-body h3,
+.project-pending .project-blurb {
+  color: var(--ink-2);
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin-top: 1.75rem;
+}
+
+.btn-sm {
+  padding: 0.5rem 0.875rem;
+  font-size: 0.875rem;
+}
+
+/* --------------------------------------------------------------------------
+   Stack
+--------------------------------------------------------------------------- */
+
+.stack-grid {
+  display: grid;
+  gap: 1.5rem 2.5rem;
+  margin: 0;
+}
+
+@media (min-width: 46rem) {
+  .stack-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.stack-group dt {
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.stack-group dd {
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
    Work card
 --------------------------------------------------------------------------- */
 

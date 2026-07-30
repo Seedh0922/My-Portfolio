@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "@/components/chrome";
-import { practice, repo, roles, site } from "@/lib/site";
+import { ProjectCard } from "@/components/project-card";
+import { inProgress, projects, roles, site, stack } from "@/lib/site";
 
 export default function Home() {
   return (
@@ -19,94 +20,67 @@ export default function Home() {
         </h1>
 
         <p className="hero-sub">
-          Thirteen years building for the web, eight of them on Shopify and
-          Shopify Plus. I work across the storefront and the systems behind it —
-          Liquid themes and headless front ends, custom apps on the Admin and
-          Storefront APIs, catalog and order integrations, and the performance
-          and CRO work that decides whether traffic turns into orders.
+          I build and speed up Shopify storefronts — Liquid themes and headless
+          front ends on Next.js and Hydrogen, custom apps on the Admin and
+          Storefront APIs, and the catalog and order integrations behind them.
+          Thirteen years in web development, eight of them on Shopify and
+          Shopify Plus.
         </p>
 
         <div className="hero-actions">
           <Link className="btn btn-primary" href="#work">
-            Selected work
+            View work
             <ArrowRight />
           </Link>
           <a className="btn btn-ghost" href={`mailto:${site.email}`}>
             {site.email}
           </a>
-        </div>
-      </section>
-
-      <section className="shell section" aria-labelledby="practice">
-        <h2 className="section-label" id="practice">
-          What I do
-        </h2>
-        <div className="practice-grid">
-          {practice.map((p) => (
-            <article className="practice" key={p.heading}>
-              <h3>{p.heading}</h3>
-              <p className="practice-body">{p.body}</p>
-              <p className="practice-proof">{p.proof}</p>
-            </article>
-          ))}
+          {site.resumePdf && (
+            <a className="btn btn-ghost" href={site.resumePdf} download>
+              Résumé (PDF)
+            </a>
+          )}
         </div>
       </section>
 
       <section className="shell section" id="work" aria-labelledby="work-heading">
         <h2 className="section-label" id="work-heading">
-          Selected work
+          Featured work
         </h2>
-
-        <Link className="work-card" href="/work/shopify-headless-perf-lab">
-          <span className="work-kicker">Open source · Case study</span>
-          <h3>Shopify Headless Perf Lab</h3>
-          <p>
-            A headless Shopify storefront on Hydrogen and the Oxygen worker
-            runtime, built so its performance numbers can be re-run rather than
-            taken on trust. The same storefront ships in two modes — one tuned,
-            one carrying six regressions that app-heavy themes commonly pick up —
-            and a single script measures both. Lighthouse budgets then run on
-            every pull request, so a regression is caught at review time.
-          </p>
-          <ul className="result-row">
-            <li>
-              <span className="result-value">−47%</span>
-              <span className="result-label">Largest Contentful Paint</span>
-            </li>
-            <li>
-              <span className="result-value">143 → 4 ms</span>
-              <span className="result-label">Total Blocking Time</span>
-            </li>
-            <li>
-              <span className="result-value">−34%</span>
-              <span className="result-label">Transfer size</span>
-            </li>
-          </ul>
-          <div className="tag-row">
-            {[
-              "Hydrogen",
-              "React Router 7",
-              "Oxygen",
-              "TypeScript",
-              "Storefront API",
-              "Lighthouse CI",
-              "GitHub Actions",
-            ].map((t) => (
-              <span className="tag" key={t}>
-                {t}
-              </span>
-            ))}
-          </div>
-          <span className="work-more">
-            Read the case study
-            <ArrowRight />
-          </span>
-        </Link>
-
+        <div className="project-list">
+          {projects.map((p, i) => (
+            <ProjectCard key={p.slug} project={p} priority={i === 0} />
+          ))}
+        </div>
         <p className="note" style={{ marginTop: "1.5rem" }}>
-          In progress: an order and inventory sync service with a harness that
-          replays duplicate, out-of-order and half-failed webhooks to show stock
-          levels stay correct through all of them.
+          {inProgress}
+        </p>
+      </section>
+
+      <section className="shell section" aria-labelledby="stack-heading">
+        <h2 className="section-label" id="stack-heading">
+          Stack
+        </h2>
+        <dl className="stack-grid">
+          {stack.map((g) => (
+            <div className="stack-group" key={g.group}>
+              <dt>{g.group}</dt>
+              <dd>
+                <ul className="tag-row" style={{ marginTop: 0 }}>
+                  {g.items.map((i) => (
+                    <li className="tag" key={i}>
+                      {i}
+                    </li>
+                  ))}
+                </ul>
+              </dd>
+            </div>
+          ))}
+        </dl>
+        <p className="note" style={{ marginTop: "1.5rem" }}>
+          The rest — WooCommerce, BigCommerce, Vue, Redis, MongoDB, AWS, Klaviyo,
+          GTM, Stripe, ShipStation — is on the{" "}
+          <Link href="/about">full background</Link>.
         </p>
       </section>
 
@@ -178,7 +152,7 @@ export default function Home() {
           </a>
           <a
             className="btn btn-ghost"
-            href={repo.url}
+            href={site.github}
             target="_blank"
             rel="noopener noreferrer"
           >
