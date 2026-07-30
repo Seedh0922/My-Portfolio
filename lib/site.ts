@@ -69,14 +69,33 @@ export const projects: Project[] = [
     code: "https://github.com/Seedh0922/shopify-headless-perf-lab",
     caseStudy: "/work/shopify-headless-perf-lab",
   },
+  {
+    slug: "shopify-inventory-sync-lab",
+    name: "Shopify Inventory Sync Lab",
+    kicker: "Integration service · Open source",
+    blurb:
+      "Shopify redelivers webhooks until it gets a 2xx and does not promise they arrive in order. The stock level has to be right anyway. The same job is implemented twice — a counter that each delivery mutates, and a ledger that derives the quantity from the set of events observed — and one command replays a mangled feed through both.",
+    results: [
+      { value: "0 units", label: "Ledger drift across six seeds" },
+      { value: "19 / 25", label: "SKUs a mutable counter gets wrong" },
+      { value: "339", label: "Repeat deliveries absorbed" },
+    ],
+    stack: [
+      "Node.js",
+      "TypeScript",
+      "Next.js",
+      "Shopify webhooks",
+      "HMAC",
+      "GitHub Actions",
+    ],
+    image: "/work/sync-lab.webp",
+    imageAlt:
+      "The dashboard: a feed of 1,363 deliveries for 1,024 real movements, with the naive projection marked drifted and the ledger marked exact.",
+    live: null,
+    code: "https://github.com/Seedh0922/shopify-inventory-sync-lab",
+    caseStudy: null,
+  },
 ];
-
-/**
- * Mentioned as a line of text rather than a placeholder card. An empty card
- * advertises what is missing; a sentence just says what is next.
- */
-export const inProgress =
-  "In progress: an order and inventory sync service, with a harness that replays duplicate, out-of-order and half-failed webhooks to show stock levels stay correct through all of them.";
 
 /**
  * Kept deliberately short. A list of forty technologies makes none of them

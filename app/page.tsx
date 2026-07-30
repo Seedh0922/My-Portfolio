@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "@/components/chrome";
 import { ProjectCard } from "@/components/project-card";
-import { inProgress, projects, roles, site, stack } from "@/lib/site";
+import { projects, roles, site, stack } from "@/lib/site";
 
 export default function Home() {
   return (
@@ -52,9 +52,6 @@ export default function Home() {
             <ProjectCard key={p.slug} project={p} priority={i === 0} />
           ))}
         </div>
-        <p className="note" style={{ marginTop: "1.5rem" }}>
-          {inProgress}
-        </p>
       </section>
 
       <section className="shell section" aria-labelledby="stack-heading">
