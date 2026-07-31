@@ -91,7 +91,7 @@ export const projects: Project[] = [
     image: "/work/sync-lab.webp",
     imageAlt:
       "The dashboard: a feed of 1,363 deliveries for 1,024 real movements, with the naive projection marked drifted and the ledger marked exact.",
-    live: null,
+    live: "https://shopify-inventory-sync-lab.vercel.app",
     code: "https://github.com/Seedh0922/shopify-inventory-sync-lab",
     caseStudy: null,
   },
