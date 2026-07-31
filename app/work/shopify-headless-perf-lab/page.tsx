@@ -28,21 +28,89 @@ export default function CaseStudy() {
         <div className="hero-actions">
           <a
             className="btn btn-primary"
-            href={repo.url}
+            href={repo.liveOptimized}
             target="_blank"
             rel="noopener noreferrer"
           >
-            View the repository
+            Live: optimized
             <ArrowUpRight />
           </a>
           <a
             className="btn btn-ghost"
-            href={repo.report}
+            href={repo.liveBaseline}
             target="_blank"
             rel="noopener noreferrer"
           >
-            Generated report
+            Live: baseline
             <ArrowUpRight />
+          </a>
+          <a
+            className="btn btn-ghost"
+            href={repo.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Repository
+            <ArrowUpRight />
+          </a>
+        </div>
+      </section>
+
+      <section className="shell section" aria-labelledby="measure-it-yourself">
+        <h2 className="section-label" id="measure-it-yourself">
+          Or measure it yourself
+        </h2>
+        <div className="prose">
+          <p>
+            Both modes are deployed on Cloudflare Workers from the same commit,
+            differing only by one environment variable. Paste either URL into{" "}
+            <a href={repo.pagespeed} target="_blank" rel="noopener noreferrer">
+              PageSpeed Insights
+            </a>{" "}
+            and Google does the measuring — on its hardware, not mine.
+          </p>
+          <p>
+            The absolute numbers will not match the table further down. That one
+            is loopback with applied throttling; this is a real network from
+            wherever you happen to be.{" "}
+            <strong>The gap between the two URLs is the same gap</strong>,
+            measured by something with no stake in the answer.
+          </p>
+        </div>
+        <div className="evidence" style={{ marginTop: "2rem" }}>
+          <a
+            href={repo.liveOptimized}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="evidence-title">
+              optimized
+              <ArrowUpRight />
+            </span>
+            <span className="evidence-desc">
+              How the storefront should ship: preconnect, an eager hero at high
+              priority, reserved layout, cached Storefront queries.
+            </span>
+          </a>
+          <a href={repo.liveBaseline} target="_blank" rel="noopener noreferrer">
+            <span className="evidence-title">
+              baseline
+              <ArrowUpRight />
+            </span>
+            <span className="evidence-desc">
+              The same storefront carrying the six regressions. Watch the hero
+              arrive late and the page settle around it.
+            </span>
+          </a>
+          <a href={repo.report} target="_blank" rel="noopener noreferrer">
+            <span className="evidence-title">
+              Generated report
+              <ArrowUpRight />
+            </span>
+            <span className="evidence-desc">
+              Every route measured locally by <code>npm run perf</code>,
+              including the metric that does not move.
+            </span>
           </a>
         </div>
       </section>

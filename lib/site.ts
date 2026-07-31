@@ -65,7 +65,7 @@ export const projects: Project[] = [
     image: "/work/perf-lab.webp",
     imageAlt:
       "The storefront homepage: a full-width hero image of running shoes above a four-product recommended grid.",
-    live: null,
+    live: "https://shopify-perf-lab-optimized.clintonbrown.workers.dev",
     code: "https://github.com/Seedh0922/shopify-headless-perf-lab",
     caseStudy: "/work/shopify-headless-perf-lab",
   },
@@ -167,8 +167,16 @@ export const repo = {
   budgets:
     "https://github.com/Seedh0922/shopify-headless-perf-lab/blob/main/lighthouserc.json",
   adr: "https://github.com/Seedh0922/shopify-headless-perf-lab/tree/main/docs/adr",
-  // Set once the demonstration pull request is open.
   failingPr: "https://github.com/Seedh0922/shopify-headless-perf-lab/pull/1",
+
+  /**
+   * Both modes, deployed from the same commit and differing only by one
+   * environment variable. The point of having them is that the comparison
+   * stops depending on my hardware or my honesty.
+   */
+  liveOptimized: "https://shopify-perf-lab-optimized.clintonbrown.workers.dev",
+  liveBaseline: "https://shopify-perf-lab-baseline.clintonbrown.workers.dev",
+  pagespeed: "https://pagespeed.web.dev/",
 } as const;
 
 /**
