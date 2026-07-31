@@ -95,6 +95,32 @@ export const projects: Project[] = [
     code: "https://github.com/Seedh0922/shopify-inventory-sync-lab",
     caseStudy: null,
   },
+  {
+    slug: "shopify-bulk-metafields",
+    name: "Shopify Bulk Metafield Editor",
+    kicker: "Embedded admin app · Open source",
+    blurb:
+      "Shopify's Admin API is limited by query cost, not request count, so a bulk edit of any real size spends more points than a shop holds. The obvious implementation treats the resulting rejections as failures and never resends them — the job reports success while half the catalog keeps its old values. Two implementations, one command, and a simulator that records which writes actually landed.",
+    results: [
+      { value: "0 lost", label: "Writes dropped by the cost-aware client" },
+      { value: "5,025", label: "Writes a plain retry loop loses" },
+      { value: "0 retries", label: "It paces rather than recovers" },
+    ],
+    stack: [
+      "Polaris",
+      "Admin GraphQL API",
+      "OAuth",
+      "Webhooks",
+      "Node.js",
+      "TypeScript",
+    ],
+    image: "/work/bulk-metafields.png",
+    imageAlt:
+      "The Polaris admin interface: shop plan and write count selectors above two panels comparing a naive and a cost-aware implementation.",
+    live: "https://shopify-bulk-metafields.vercel.app/demo",
+    code: "https://github.com/Seedh0922/shopify-bulk-metafields",
+    caseStudy: null,
+  },
 ];
 
 /**
