@@ -52,7 +52,9 @@ export default function Home() {
       {/* ---- selected work ------------------------------------------------- */}
       <section className="section shell" id="work" aria-labelledby="work-title">
         <div className="s-head">
-          <span className="s-num">01</span>
+          <span className="s-num">
+            <b>01</b> / 05
+          </span>
           <h2 className="s-title" id="work-title">
             Selected work
           </h2>
@@ -68,7 +70,9 @@ export default function Home() {
       {/* ---- capabilities -------------------------------------------------- */}
       <section className="section shell" aria-labelledby="stack-title">
         <div className="s-head">
-          <span className="s-num">02</span>
+          <span className="s-num">
+            <b>02</b> / 05
+          </span>
           <h2 className="s-title" id="stack-title">
             Capabilities
           </h2>
@@ -99,7 +103,9 @@ export default function Home() {
       {/* ---- approach ------------------------------------------------------ */}
       <section className="section shell" aria-labelledby="how-title">
         <div className="s-head">
-          <span className="s-num">03</span>
+          <span className="s-num">
+            <b>03</b> / 05
+          </span>
           <h2 className="s-title" id="how-title">
             How I work
           </h2>
@@ -131,7 +137,9 @@ export default function Home() {
       {/* ---- experience ---------------------------------------------------- */}
       <section className="section shell" aria-labelledby="exp-title">
         <div className="s-head">
-          <span className="s-num">04</span>
+          <span className="s-num">
+            <b>04</b> / 05
+          </span>
           <h2 className="s-title" id="exp-title">
             Experience
           </h2>
@@ -163,7 +171,9 @@ export default function Home() {
       {/* ---- contact ------------------------------------------------------- */}
       <section className="section shell cta" id="contact" aria-labelledby="contact-title">
         <div className="s-head">
-          <span className="s-num">05</span>
+          <span className="s-num">
+            <b>05</b> / 05
+          </span>
           <h2 className="s-title" id="contact-title">
             Contact
           </h2>

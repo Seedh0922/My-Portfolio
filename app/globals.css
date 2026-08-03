@@ -1339,6 +1339,13 @@ ol {
   margin-bottom: 2.75rem;
 }
 
+/*
+   Two number systems, deliberately different so a reader never confuses the
+   page's section spine with the list inside a section. Sections are a small
+   monospace index-of-total ("01 / 05") — a table of contents. Work items are a
+   large, faint sans ordinal — a magazine-style list number. Different font,
+   size, and format: no collision.
+*/
 .s-num {
   grid-column: 1;
   grid-row: 1;
@@ -1346,7 +1353,13 @@ ol {
   font-size: 0.8125rem;
   letter-spacing: 0.04em;
   color: var(--ink-muted);
-  padding-top: 0.15rem;
+  padding-top: 0.35rem;
+  white-space: nowrap;
+}
+
+.s-num b {
+  color: var(--ink-2);
+  font-weight: 600;
 }
 
 .s-title {
@@ -1407,14 +1420,21 @@ ol {
 .windex-num {
   grid-column: 1;
   grid-row: 1;
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
+  font-family: var(--font-sans);
+  font-size: 1.375rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
   color: var(--ink-muted);
-  padding-top: 0.55rem;
-  transition: color 0.18s ease;
+  opacity: 0.5;
+  padding-top: 0.05rem;
+  transition:
+    opacity 0.18s ease,
+    color 0.18s ease;
 }
 
 .windex-link:hover .windex-num {
+  opacity: 1;
   color: var(--ink);
 }
 
