@@ -1,63 +1,82 @@
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "@/components/chrome";
-import { ProjectCard } from "@/components/project-card";
-import { projects, roles, site, stack } from "@/lib/site";
+import { WorkIndex } from "@/components/work-index";
+import { roles, site, stack } from "@/lib/site";
 
 export default function Home() {
   return (
     <>
-      <section className="shell hero">
-        <p className="hero-eyebrow">
-          <span>{site.name}</span>
+      {/* ---- masthead ------------------------------------------------------ */}
+      <section className="masthead shell">
+        <p className="status">
+          <span className="dot" aria-hidden="true" />
+          Available for senior roles
           <span className="sep" aria-hidden="true" />
-          <span>{site.location}</span>
-          <span className="sep" aria-hidden="true" />
-          <span>{site.availability}</span>
+          Remote · {site.location}
         </p>
 
-        <h1>
-          Shopify and headless <span className="quiet">commerce engineer</span>
+        <h1 className="masthead-title">
+          Shopify &amp; headless <span className="quiet">commerce engineer.</span>
         </h1>
 
-        <p className="hero-sub">
-          I build and speed up Shopify storefronts — Liquid themes and headless
-          front ends on Next.js and Hydrogen, custom apps on the Admin and
-          Storefront APIs, and the catalog and order integrations behind them.
-          Thirteen years in web development, eight of them on Shopify and
-          Shopify Plus.
+        <p className="masthead-sub">
+          I make Shopify and Shopify&nbsp;Plus stores fast, reliable, and easy for
+          a marketing team to run — from Liquid themes and headless front ends to
+          the custom apps and integrations behind them.
         </p>
+
+        <div className="masthead-meta">
+          <span>
+            <b>13</b>yrs on the web
+          </span>
+          <span>
+            <b>8+</b>yrs Shopify Plus
+          </span>
+          <span>
+            <b>4</b>open-source labs
+          </span>
+        </div>
 
         <div className="hero-actions">
           <Link className="btn btn-primary" href="#work">
-            View work
+            Selected work
             <ArrowRight />
           </Link>
           <a className="btn btn-ghost" href={`mailto:${site.email}`}>
             {site.email}
           </a>
-          {site.resumePdf && (
-            <a className="btn btn-ghost" href={site.resumePdf} download>
-              Résumé (PDF)
-            </a>
-          )}
         </div>
       </section>
 
-      <section className="shell section" id="work" aria-labelledby="work-heading">
-        <h2 className="section-label" id="work-heading">
-          Featured work
-        </h2>
-        <div className="project-list">
-          {projects.map((p, i) => (
-            <ProjectCard key={p.slug} project={p} priority={i === 0} />
-          ))}
+      {/* ---- selected work ------------------------------------------------- */}
+      <section className="section shell" id="work" aria-labelledby="work-title">
+        <div className="s-head">
+          <span className="s-num">01</span>
+          <h2 className="s-title" id="work-title">
+            Selected work
+          </h2>
+          <p className="s-note">
+            Four open-source builds. Each ships the same job twice and measures
+            the difference, so the numbers are a command you can re-run rather
+            than a claim.
+          </p>
         </div>
+        <WorkIndex />
       </section>
 
-      <section className="shell section" aria-labelledby="stack-heading">
-        <h2 className="section-label" id="stack-heading">
-          Stack
-        </h2>
+      {/* ---- capabilities -------------------------------------------------- */}
+      <section className="section shell" aria-labelledby="stack-title">
+        <div className="s-head">
+          <span className="s-num">02</span>
+          <h2 className="s-title" id="stack-title">
+            Capabilities
+          </h2>
+          <p className="s-note">
+            The tools I reach for first. The rest — WooCommerce, BigCommerce, Vue,
+            Redis, MongoDB, AWS, Klaviyo, GTM, Stripe, ShipStation — is on the{" "}
+            <Link href="/about">full background</Link>.
+          </p>
+        </div>
         <dl className="stack-grid">
           {stack.map((g) => (
             <div className="stack-group" key={g.group}>
@@ -74,17 +93,17 @@ export default function Home() {
             </div>
           ))}
         </dl>
-        <p className="note" style={{ marginTop: "1.5rem" }}>
-          The rest — WooCommerce, BigCommerce, Vue, Redis, MongoDB, AWS, Klaviyo,
-          GTM, Stripe, ShipStation — is on the{" "}
-          <Link href="/about">full background</Link>.
-        </p>
       </section>
 
-      <section className="shell section" aria-labelledby="how">
-        <h2 className="section-label" id="how">
-          How I work
-        </h2>
+      {/* ---- approach ------------------------------------------------------ */}
+      <section className="section shell" aria-labelledby="how-title">
+        <div className="s-head">
+          <span className="s-num">03</span>
+          <h2 className="s-title" id="how-title">
+            How I work
+          </h2>
+          <p className="s-note">Three habits that show up in every build.</p>
+        </div>
         <div className="prose">
           <p>
             <strong>Performance is a budget, not a sprint.</strong> A storefront
@@ -108,10 +127,18 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="shell section" aria-labelledby="experience">
-        <h2 className="section-label" id="experience">
-          Experience
-        </h2>
+      {/* ---- experience ---------------------------------------------------- */}
+      <section className="section shell" aria-labelledby="exp-title">
+        <div className="s-head">
+          <span className="s-num">04</span>
+          <h2 className="s-title" id="exp-title">
+            Experience
+          </h2>
+          <p className="s-note">
+            The last four roles. Six-role history on the{" "}
+            <Link href="/about">full background</Link>.
+          </p>
+        </div>
         <div className="role-list">
           {roles.slice(0, 4).map((r) => (
             <article className="role" key={r.when}>
@@ -132,36 +159,28 @@ export default function Home() {
         </p>
       </section>
 
-      <section className="shell section" aria-labelledby="contact">
-        <h2 className="section-label" id="contact">
-          Contact
-        </h2>
-        <div className="prose">
-          <p>
-            I am open to senior Shopify and headless commerce roles, remote from{" "}
-            {site.location}. Happy to walk through any of the work above, or talk
-            about what you are building.
-          </p>
+      {/* ---- contact ------------------------------------------------------- */}
+      <section className="section shell cta" id="contact" aria-labelledby="contact-title">
+        <div className="s-head">
+          <span className="s-num">05</span>
+          <h2 className="s-title" id="contact-title">
+            Contact
+          </h2>
         </div>
-        <div className="hero-actions" style={{ marginTop: "2rem" }}>
+        <p className="cta-line">
+          Have a storefront that needs to be faster, or a build that needs an
+          owner who measures?{" "}
+          <a href={`mailto:${site.email}`}>Let&rsquo;s talk.</a>
+        </p>
+        <div className="hero-actions" style={{ marginTop: "2.5rem" }}>
           <a className="btn btn-primary" href={`mailto:${site.email}`}>
             {site.email}
           </a>
-          <a
-            className="btn btn-ghost"
-            href={site.github}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a className="btn btn-ghost" href={site.github} target="_blank" rel="noopener noreferrer">
             GitHub
             <ArrowUpRight />
           </a>
-          <a
-            className="btn btn-ghost"
-            href={site.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a className="btn btn-ghost" href={site.linkedin} target="_blank" rel="noopener noreferrer">
             LinkedIn
             <ArrowUpRight />
           </a>
