@@ -44,6 +44,32 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "shopify-campaign-velocity-lab",
+    name: "Shopify Campaign Velocity Lab",
+    kicker: "Shopify theme · Open source",
+    blurb:
+      "Marketing asks for a hero swap on Tuesday. In most themes that is a ticket, a pull request, a review and a deploy. The same storefront is built twice here — content written into Liquid, and content held in Online Store 2.0 sections, blocks and metafields — and a backlog of twelve real campaign requests is replayed through both. The audit renders every setting twice rather than reading the schema, because a control that is declared and does nothing passes every static check there is.",
+    results: [
+      { value: "10 / 12", label: "Campaigns shipped by configuration" },
+      { value: "1 / 12", label: "The same backlog, content in Liquid" },
+      { value: "56 / 56", label: "Settings proven to move the page" },
+    ],
+    stack: [
+      "Liquid",
+      "Online Store 2.0",
+      "Metafields",
+      "LiquidJS",
+      "Node.js",
+      "GitHub Actions",
+    ],
+    image: "/work/velocity-lab.webp",
+    imageAlt:
+      "The demo: a theme editor generated from the section schema on the left, and two live previews on the right — the composable theme showing the autumn campaign, the hardcoded one still showing summer.",
+    live: "https://shopify-campaign-velocity-lab.vercel.app",
+    code: "https://github.com/Seedh0922/shopify-campaign-velocity-lab",
+    caseStudy: null,
+  },
+  {
     slug: "shopify-headless-perf-lab",
     name: "Shopify Headless Perf Lab",
     kicker: "Headless storefront · Open source",
