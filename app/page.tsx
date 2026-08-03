@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "@/components/chrome";
+import { ArrowRight } from "@/components/chrome";
+import { ContactPanel } from "@/components/contact-panel";
 import { WorkIndex } from "@/components/work-index";
 import { roles, site, stack } from "@/lib/site";
 
@@ -166,25 +167,16 @@ export default function Home() {
           <h2 className="s-title" id="contact-title">
             Contact
           </h2>
+          <p className="s-note">
+            Hiring for a Shopify or headless role, or want a second opinion on a
+            store? Send a line or grab a time — whichever is easier.
+          </p>
         </div>
         <p className="cta-line">
           Have a storefront that needs to be faster, or a build that needs an
-          owner who measures?{" "}
-          <a href={`mailto:${site.email}`}>Let&rsquo;s talk.</a>
+          owner who measures?
         </p>
-        <div className="hero-actions" style={{ marginTop: "2.5rem" }}>
-          <a className="btn btn-primary" href={`mailto:${site.email}`}>
-            {site.email}
-          </a>
-          <a className="btn btn-ghost" href={site.github} target="_blank" rel="noopener noreferrer">
-            GitHub
-            <ArrowUpRight />
-          </a>
-          <a className="btn btn-ghost" href={site.linkedin} target="_blank" rel="noopener noreferrer">
-            LinkedIn
-            <ArrowUpRight />
-          </a>
-        </div>
+        <ContactPanel />
       </section>
     </>
   );

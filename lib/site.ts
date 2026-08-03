@@ -23,6 +23,33 @@ export const site = {
 } as const;
 
 /**
+ * Contact + scheduling.
+ *
+ * The default path needs no backend and no third-party script: the visitor
+ * either copies the address, composes a pre-filled email in their own client,
+ * or drops a calendar hold that invites me — all client-side.
+ *
+ * Optional one-click delivery: paste a free Web3Forms access key into
+ * `formAccessKey` and the message form posts straight to my inbox, so a
+ * recruiter without a configured mail client still reaches me in one click.
+ * Get a key at https://web3forms.com (free, no account, just an email).
+ */
+export const contact = {
+  email: site.email,
+  linkedin: site.linkedin,
+  github: site.github,
+  organizer: site.name,
+  timezone: "America/Chicago",
+  timezoneLabel: "Central Time (CT)",
+  meetingTitle: "Intro call — Clinton Brown",
+  durationMin: 30,
+  /** Start times offered, in CT, on the next few weekdays. */
+  slotHours: [9, 11, 13, 15],
+  /** Paste a Web3Forms key to enable one-click send-to-inbox. */
+  formAccessKey: null as string | null,
+} as const;
+
+/**
  * Featured work. Convention is two to four, each with a live link, source, and
  * a written case study; `live: null` simply hides that button rather than
  * shipping a dead one.

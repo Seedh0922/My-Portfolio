@@ -61,15 +61,9 @@ export function SiteNav() {
           >
             GitHub
           </a>
-          <a
-            className="nav-hide-sm"
-            href={site.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn
-          </a>
-          <a href={`mailto:${site.email}`}>Email</a>
+          <Link className="nav-cta" href="/#contact">
+            Get in touch
+          </Link>
         </nav>
       </div>
     </header>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { ArrowUpRight } from "@/components/chrome";
+import Link from "next/link";
+import { ArrowRight, ArrowUpRight } from "@/components/chrome";
 import { capabilities, repo, roles, site } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -13,6 +14,9 @@ export default function About() {
   return (
     <>
       <section className="shell case-header">
+        <Link href="/" className="back-link">
+          ← Home
+        </Link>
         <h1>Thirteen years of shipping commerce, mostly on Shopify.</h1>
         <div className="prose" style={{ marginTop: "2rem" }}>
           <p>
@@ -37,9 +41,10 @@ export default function About() {
           </p>
         </div>
         <div className="hero-actions">
-          <a className="btn btn-primary" href={`mailto:${site.email}`}>
-            {site.email}
-          </a>
+          <Link className="btn btn-primary" href="/#contact">
+            Get in touch
+            <ArrowRight />
+          </Link>
           <a
             className="btn btn-ghost"
             href={site.linkedin}
